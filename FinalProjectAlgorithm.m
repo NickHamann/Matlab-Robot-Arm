@@ -131,8 +131,8 @@ function [mat_country, mat_container, mat_types, mat_code, mat_small, ...
         disp('File open not successful');
     else
         mat = readtable("ShippingDetails.xlsx");
-        mat_country = mat.Country(1:5);
-        mat_container = mat.Container(1:5);
+        mat_country = mat.Country(1:length(mat.Country));
+        mat_container = mat.Container(1:length(mat.Country));
         mat_types = mat.Type(1:3);
         mat_code = mat.Code(1:3);
         mat_small = mat.Small(1:3);
