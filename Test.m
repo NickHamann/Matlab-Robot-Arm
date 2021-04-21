@@ -5,3 +5,4 @@ clear a;
 moveArm(15,15,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn);
 moveArm(7.5,22.5,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn);
 moveArm(-20,4,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn);
+moveArm(13,12,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn);
