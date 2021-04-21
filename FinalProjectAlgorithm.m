@@ -161,7 +161,7 @@ function [xCoords, yCoords, countryLabel, typeLabel] = ...
     typeLabel = [0, 0, 0];
     xCoords = [30.0, 30.0, 30.0];
     yCoords = [30.0, 30.0, 30.0];
-    limit = 25;
+    limit = 30;
 
     % Initiate a structure for the 3 containers
     container(3) = struct('country', '', 'type', '');
