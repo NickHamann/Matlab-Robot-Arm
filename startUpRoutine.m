@@ -22,11 +22,11 @@ function [a,gripper,base,elbow,shoulder,wristUD,forearm,wristTurn] = init_servos
 %     moveservo(base, 0.5);
     
     shoulder = servo(a, 'D5');
-    writePosition(shoulder, 0.4);
+    writePosition(shoulder, 0.5);
 %     moveservo(shoulder, 0.4);
     
     elbow = servo(a, 'D6');
-    writePosition(elbow, 0.3);
+    writePosition(elbow, 0.2);
 %     moveservo(elbow, 0.3);
     
     wristUD = servo(a, 'D9');

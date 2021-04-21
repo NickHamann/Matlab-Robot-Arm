@@ -4,10 +4,10 @@ function moveservo(servosel, des_position)
     % have already been defined with a command such as base = servo(a, 'D3'),
     % where a is the arduino a = arduino('COM10','uno', 'Libraries', 'Servo');
     % Rather than jump as quickly as possible to the desired location, the
-    % servo is moved 0.01 every del_dur (0.0005 seconds).
+    % servo is moved 0.01 every del_dur (0.0004 seconds).
     % Dr. Randy Fish, August 20, 2019
 
-        del_dur = 0.0005; %Delay between each position update
+        del_dur = 0.0004; %Delay between each position update
         pos_delta = 0.01; % amount to update the current position
         current_pos = readPosition(servosel);
         if des_position < current_pos

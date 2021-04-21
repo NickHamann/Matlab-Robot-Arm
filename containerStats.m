@@ -9,6 +9,7 @@ function containerStats(Stats)
         Stats(3).Small Stats(3).Medium Stats(3).Large;...
         Stats(4).Small Stats(4).Medium Stats(4).Large];
     
+    close all;
     %Creates a figure and centers it.
     f = figure('Visible', 'off', 'Color', 'white','Units','Normalized',...
         'Position',[.2, .2, .7, .7]);

@@ -84,6 +84,7 @@ while(~done)
         sound(message,Fs);
         pause(4);
 
+        close figure;
 %moveBoxes moves the boxes to the appropriate container or 
 % the reject pile depending on its type and size and weight 
 % limit.
@@ -92,24 +93,24 @@ Fs = 48000;
 if (Containers(1).isFull && Containers(2).isFull && Containers(3).isFull)
     fprintf('All 3 containers are full!\n The arm will not move!\n');
 else
-    for i = 1:3
-        if (strcmpi(Containers(i).Box_type,Load.Box_type))
+    for j = 1:3
+        if (strcmpi(Containers(j).Box_type,Load.Box_type))
 
             %Getting current weight to see if the limit has been reached.
             call = sprintf("%s_weight",Load.Box_size);
-            weight = Containers(i).Weight + Containers(i).(call);
+            weight = Containers(j).Weight + Containers(j).(call);
     
             %If the future weight will be greater than the limit,
             % then reject the box.
-            if (weight > Containers(i).Weight_limit)
+            if (weight > Containers(j).Weight_limit)
                %Send the box to the reject pile.
                [Rejected, ~] = audioread('Rejected.wav');
                sound(Rejected,Fs);
                Containers(4).Weight = Containers(4).Weight ...
-                   + Containers(i).(call);
+                   + Containers(j).(call);
                
                %Set the boolean isFull to true
-               Containers(i).isFull = true;
+               Containers(j).isFull = true;
 
                %Track what goes into reject pile.
                Stats(4).(Load.Box_size) = Stats(4).(Load.Box_size) + 1;
@@ -126,12 +127,12 @@ else
                 Containers(i).Weight = weight;
 
                 %Track what goes into the containers.
-                Stats(i).(Load.Box_size) = Stats(i).(Load.Box_size) + 1;
+                Stats(j).(Load.Box_size) = Stats(j).(Load.Box_size) + 1;
 
                 %Move the arm.
                 fprintf('Moving the box to the container for %s\n',...
-                    Containers(i).Country);
-                moveArm(Containers(i).X_coordinate,Containers(i).Y_coordinate,...
+                    Containers(j).Country);
+                moveArm(Containers(j).X_coordinate,Containers(j).Y_coordinate,...
                    a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn);
             end
         end
@@ -142,6 +143,11 @@ end
 finished = menu('Do you want to load another box','YES','NO');
 if (finished == 2)
     done = true;
+
+    %Move the arm to a final rest position.
+    moveservo(base, 0.5);
+    moveservo(elbow, 0.1);
+    moveservo(shoulder, 0.9);
 else
     i = i + 1;
 end

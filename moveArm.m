@@ -18,10 +18,9 @@ function moveArm(x,y,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTu
     else
         %Pick Up Procedure.
         fprintf('Picking up\n');
-        moveservo(base, 0);
         writePosition(gripper, 0.7);
         moveservo(shoulder, 0.32);
-        moveservo(elbow, 0.4); %Thick coin 0.38
+        moveservo(elbow, 0.43); %Thick coin 0.38
         writePosition(gripper, 0.888);
         moveservo(elbow, 0.3);
         moveservo(shoulder, 0.4);
@@ -67,7 +66,7 @@ function moveArm(x,y,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTu
         moveservo(shoulder, shoulderMove);
         moveservo(elbow, elbowMove);
         moveservo(wristUD, wristMove);
-        pause(0.5);
+        pause(0.8);
         writePosition(gripper, 0.7);
 
         %Set to moving position.
@@ -75,6 +74,9 @@ function moveArm(x,y,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTu
         moveservo(wristUD, 0.5);
         moveservo(elbow, 0.3);
         moveservo(shoulder, 0.4);
+        
+        %Moving back to home position
+        moveservo(base, 0);
     end
         
 end
