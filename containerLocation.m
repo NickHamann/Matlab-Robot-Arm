@@ -41,8 +41,12 @@ for i = 1:3
                 end
         end
         
+        %Check the radius.
+        radius = sqrt(x^2 + y^2);
+        
         %Checking that the coordinates can be reached by the arm.
-        if (x >= -30 && x <= 30 && y >= 0 && y <= 30 && happy)
+        if (x >= -30 && x <= 30 && y >= 0 && y <= 30 && ...
+                radius <= 30 && happy)
             done = true;
             Containers(i).X_coordinate = x;
             Containers(i).Y_coordinate = y;
@@ -75,7 +79,8 @@ while(~done)
     end
     
     %Checking that the coordinates can be reached by the arm.
-    if (x > 0 && x < 35 && y > 0 && y < 35 && happy)
+    if (x >= -30 && x <= 30 && y >= 0 && y <= 30 && ...
+                radius <= 30 && happy)
         done = true;
         Containers(4).X_coordinate = x;
         Containers(4).Y_coordinate = y;
