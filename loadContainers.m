@@ -13,24 +13,22 @@ function [Containers,Stats] = loadContainers(Containers)
     i = 1;
 
     %Boolean control variable.
-    yes = true;
+    done = false;
 
     %Structure for loading.
     Load = struct('Box_type',[],'Box_size',[]);
     %Structure for container stats.
     Stats(4) = struct('Country',Containers(4).Country,'Small',0,'Medium',...
         0,'Large',0);
-    Stats(1) = struct('Country',Containers(1).Country,'Small',0,'Medium',...
+    for i = 1:3
+    Stats(i) = struct('Country',Containers(i).Country,'Small',0,'Medium',...
         0,'Large',0);
-    Stats(2) = struct('Country',Containers(2).Country,'Small',0,'Medium',...
-        0,'Large',0);
-    Stats(3) = struct('Country',Containers(3).Country,'Small',0,'Medium',...
-        0,'Large',0);
+    end
 
     %While the user wants to continue, the program will keep loading and
     % processing boxes.
-    while(yes)
-        if( i < 46)
+    while(~done)
+        if(i < 46)
             file = sprintf('%d.png',i);
             pic = imread(file);
 
@@ -92,18 +90,18 @@ function [Containers,Stats] = loadContainers(Containers)
             [Containers,Stats] = moveBoxes(Load,Containers,Stats,a,... 
                 gripper, base, elbow, shoulder, wristUD, forearm, wristTurn);
 
-            done = menu('Do you want to load another box','YES','NO');
-            if (done == 2)
-                yes = false;
+            finished = menu('Do you want to load another box','YES','NO');
+            if (finished == 2)
+                done = true;
             else
                 i = i + 1;
             end
         %There are no more images    
         else
             fprintf('There are no more boxes to sort. Please select NO\n');
-            done = menu('Do you want to load another box','YES','NO');
-            if (done == 2)
-                yes = false;
+            finished = menu('Do you want to load another box','YES','NO');
+            if (finished == 2)
+                done = true;
             else
                 i = i + 1;
             end
