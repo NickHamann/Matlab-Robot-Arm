@@ -9,13 +9,13 @@ function Containers = containerLocation(Containers)
 %    existing structure for Containers and modifies the values in its fields.
 
 %Boolean variable for controlling the while loop.
-not_done = true;
+done = false;
 %Boolean variable for error checking.
 happy = true;
 
 %Iterates 3 times for the 3 containers.
 for i = 1:3
-    while(not_done)
+    while(~done)
         %Receiving user input.
         message1 = sprintf('Please enter the x-coordinate of the container for %s: ',Containers(i).Country);
         x = input(message1);
@@ -42,8 +42,8 @@ for i = 1:3
         end
         
         %Checking that the coordinates can be reached by the arm.
-        if (x > 0 && x < 35 && y > 0 && y < 35 && happy)
-            not_done = false;
+        if (x >= -30 && x <= 30 && y >= 0 && y <= 30 && happy)
+            done = true;
             Containers(i).X_coordinate = x;
             Containers(i).Y_coordinate = y;
         else
@@ -52,12 +52,14 @@ for i = 1:3
     end
     
     %Resetting the while loop.
-    not_done = true;
+    done = false;
 end
 
 happy = true;
+
 %Establishing the reject pile.
-while(not_done)
+while(~done)
+    
     %Receiving user input.
     x = input('Please enter the x-coordinate of the reject pile: ');
     y = input('Please enter the y-coordinate of the reject pile: ');
@@ -74,7 +76,7 @@ while(not_done)
     
     %Checking that the coordinates can be reached by the arm.
     if (x > 0 && x < 35 && y > 0 && y < 35 && happy)
-        not_done = false;
+        done = true;
         Containers(4).X_coordinate = x;
         Containers(4).Y_coordinate = y;
     else
