@@ -19,7 +19,7 @@ function Containers = shippingDetails(Containers)
     countries = Details.Country(1:length(Details.Country));
     boxes = Details.Type(1:3);
 
-    %Prepping vectors for 'already selected' memory.
+    %Prepping vectors for '--already selected--' memory.
     chosen = zeros(1,3);
     newChosen = zeros(1,3);
 
@@ -61,7 +61,7 @@ while isempty(Containers(3).Box_type)
            Containers(i).Country = countries{selection};
            Containers(i).Weight_limit = Details.Container(selection);
            happy = true;
-           countries{selection} = 'Already selected';
+           countries{selection} = '--Already selected--';
            okay = false;
        end
     end
@@ -97,7 +97,7 @@ while isempty(Containers(3).Box_type)
            Containers(i).Medium_weight = Details.Medium(newSelection);
            Containers(i).Large_weight =Details.Large(newSelection);
            newHappy = true;
-           boxes{newSelection} = 'Already selected';
+           boxes{newSelection} = '--Already selected--';
            okay = false;
        end
     end
