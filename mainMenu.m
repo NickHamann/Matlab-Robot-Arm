@@ -39,7 +39,8 @@ while choice ~= 6 && choice ~= 0
                         
         case 3
             %Calls a function that will establish the locations of the
-            %containers for the arm to use later.
+            %containers for the arm to use later and puts them into a
+            %structure.
             if countriesAssigned
                 Containers = containerLocation(Containers);
                 containerLocationAssigned = true;

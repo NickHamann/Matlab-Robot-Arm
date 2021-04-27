@@ -50,6 +50,7 @@ for i = 1:3
             done = true;
             Containers(i).X_coordinate = x;
             Containers(i).Y_coordinate = y;
+            fprintf('Coordinates accepted!\n');
         else
             fprintf('You have entered an invalid x and y coordinate\n');
         end
@@ -84,6 +85,7 @@ while(~done)
         done = true;
         Containers(4).X_coordinate = x;
         Containers(4).Y_coordinate = y;
+        fprintf('Coordinates accepted!\n');
     else
         fprintf('You have entered an invalid x and y coordinate\n');
     end

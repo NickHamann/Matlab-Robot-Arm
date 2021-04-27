@@ -16,8 +16,8 @@ function Containers = shippingDetails(Containers)
 
     %Incremental variable for loading the containers in order.
     i = 1;
-    countries = Details.Country;
-    boxes = Details.Type;
+    countries = Details.Country(1:length(Details.Country));
+    boxes = Details.Type(1:3);
 
     %Prepping vectors for 'already selected' memory.
     chosen = zeros(1,3);
