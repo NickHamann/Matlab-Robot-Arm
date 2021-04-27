@@ -86,7 +86,7 @@ while(~done)
         pause(4);
 
         close figure;
-%moveBoxes moves the boxes to the appropriate container or 
+%Moves the boxes to the appropriate container or 
 % the reject pile depending on its type and size and weight 
 % limit.
 Fs = 48000;
