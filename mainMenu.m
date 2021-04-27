@@ -37,7 +37,7 @@ while choice ~= 6 && choice ~= 0
             %country and box type. A structure is returned.
             Containers = shippingDetails(Containers);
             countriesAssigned = true;
-            dispCountries(Containers);
+            dispCountries(Containers, false);
                         
         case 3
             %Calls a function that will establish the locations of the
@@ -46,6 +46,7 @@ while choice ~= 6 && choice ~= 0
             if countriesAssigned
                 Containers = containerLocation(Containers);
                 containerLocationAssigned = true;
+                dispCountries(Containers, true);
             else
                 cprintf('err', 'You have not yet assigned countries or box types to container\n');
             end
