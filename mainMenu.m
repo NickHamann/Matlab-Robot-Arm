@@ -1,7 +1,8 @@
-  
 %mainMenu() is the central location for the robotic arm code. Users will
-%select whatever they want to do from the menu until the user decides to
-%exit the program.
+% select whatever they want to do from the menu until the user decides to
+% exit the program.
+%
+% Format: mainMenu().
 
 %Initialize a structure called Containers.
 Containers(4) = struct('Country','Reject','Weight_limit',100000,...

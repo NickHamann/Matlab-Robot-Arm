@@ -1,12 +1,14 @@
 function Containers = containerLocation(Containers)
 %containerLocation is designed to receive the inputs from the user to
-%establish the coordinate locations of the containers on the board and 
-%the reject pile.
-%   containerLocation uses while loops to keep allowing for more input so
-%    that when the user makes an error (exceeding how far the arm can
-%    reach), the user can try to input a correct coordinate again. 
-%    Format: Containers = containerLocation(Containers). It receives the  
-%    existing structure for Containers and modifies the values in its fields.
+% establish the coordinate locations of the containers on the board and 
+% the reject pile.
+%
+%containerLocation uses while loops to keep allowing for more input so
+% that when the user makes an error (exceeding how far the arm can
+% reach), the user can try to input a correct coordinate again. 
+%       
+% Format: Containers = containerLocation(Containers). It receives the  
+%  existing structure for Containers and modifies the values in its fields.
 
 %Boolean variable for controlling the while loop.
 done = false;

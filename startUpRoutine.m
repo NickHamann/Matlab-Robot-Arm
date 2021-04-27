@@ -1,5 +1,10 @@
 function [a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn] = startUpRoutine()
+%startUpRoutine() creates a connection to the arduino and creates a
+% variable connected to each motor.
 %
+% Format: [a, gripper, base, elbow, shoulder, wristUD, forearm,
+%  wristTurn] = startUpRoutine().
+
     clear all;
     close all;
     comdef = 'COM14';

@@ -1,7 +1,8 @@
 function containerStats(Stats)
 %containerStats displays a stacked bar graph with the number of boxes of
 % each size indicated for each container and the reject pile.
-%   Format: containerStats(Stats). Stats is a structure.
+%   
+% Format: containerStats(Stats). Stats is a structure.
 
     %Creates a matrix for the bar graph.
     stats_matrix = [Stats(1).Small Stats(1).Medium Stats(1).Large;...

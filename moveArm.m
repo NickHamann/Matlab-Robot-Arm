@@ -1,7 +1,8 @@
 function moveArm(x,y,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn)
 %This function moves the robot arm to grab a box and place it in the
 % appropriate location.
-    % Format: moveArm(x,y).
+%
+% Format: moveArm(x,y).
     
     %For setup.
     radius = sqrt(x^2+y^2);

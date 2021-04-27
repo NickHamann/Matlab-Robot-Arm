@@ -2,8 +2,9 @@ function [Containers,Stats] = loadContainers(Containers)
 %loadContainers identifies the box that is being loaded and determine
 % which container it goes into. The arm will then pick of the box and place
 % it in the correct container (1, 2, 3, or reject aka 4).
-%   Format: [Containers, Stats] = loadContainers(Containers). All inputs
-%    and outputs are structures.
+%
+% Format: [Containers, Stats] = loadContainers(Containers). All inputs
+%  and outputs are structures.
 
 %Initialize arm.
 clear a;

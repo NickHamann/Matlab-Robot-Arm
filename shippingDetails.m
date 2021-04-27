@@ -1,14 +1,16 @@
 function Containers = shippingDetails(Containers)
 %shippingDetails is the function for users to assign countries and box
 % types to containers.
-%  shippingDetails recieves user input for assigning countries and box
-%   types to containers without allowing for repeats. The function uses
-%   listdlgs to allow for easy user interaction. The function returns a
-%   structure with the Country, Weight_limit, and Box_type. The function
-%   recieves the structure Containers from the mainMenu and returns it with
-%   changes in the fields. 
-%   Format: Containers = shippingDetails(Containers) so that the 
-%   main strucutre is modified and returned for the mainMenu to use elsewhere.
+%
+%shippingDetails recieves user input for assigning countries and box
+% types to containers without allowing for repeats. The function uses
+% listdlgs to allow for easy user interaction. The function returns a
+% structure with the Country, Weight_limit, and Box_type. The function
+% recieves the structure Containers from the mainMenu and returns it with
+% changes in the fields.
+%
+% Format: Containers = shippingDetails(Containers) so that the 
+%  main strucutre is modified and returned for the mainMenu to use elsewhere.
 
     %Load excel sheet into a table.
     Details = readtable('ShippingDetails_21.xlsx');
