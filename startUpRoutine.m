@@ -1,4 +1,5 @@
 function [a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn] = startUpRoutine()
+%
     clear all;
     close all;
     comdef = 'COM14';

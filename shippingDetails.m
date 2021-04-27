@@ -47,7 +47,7 @@ while isempty(Containers(3).Box_type)
        %Check to see if the country has already been selected.
        for j = 1:3
            if selection == chosen(j)
-               fprintf('You have already selected this country\n');
+               cprintf('err','You have already selected this country\n');
                okay = false;
                break;
            else
@@ -81,7 +81,7 @@ while isempty(Containers(3).Box_type)
         %Check to see if the box type has already been selected.
        for j = 1:3
            if newSelection == newChosen(j)
-               fprintf('You have already selected this box type\n');
+               cprintf('err','You have already selected this box type.\n');
                okay = false;
                break;
            else
