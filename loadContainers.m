@@ -99,11 +99,11 @@ else
 
             %Getting current weight to see if the limit has been reached.
             call = sprintf("%s_weight",Load.Box_size);
-            weight = Containers(j).Weight + Containers(j).(call);
+            futureWeight = Containers(j).Weight + Containers(j).(call);
     
             %If the future weight will be greater than the limit,
             % then reject the box.
-            if (weight > Containers(j).Weight_limit)
+            if (futureWeight > Containers(j).Weight_limit)
                %Send the box to the reject pile.
                [Rejected, ~] = audioread('Rejected.wav');
                sound(Rejected,Fs);
@@ -125,7 +125,7 @@ else
             else
                 %Load the box to container i.
                 fprintf('Accepted\n');
-                Containers(i).Weight = weight;
+                Containers(i).Weight = futureWeight;
 
                 %Track what goes into the containers.
                 Stats(j).(Load.Box_size) = Stats(j).(Load.Box_size) + 1;
