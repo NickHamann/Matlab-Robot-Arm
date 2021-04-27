@@ -7,8 +7,7 @@ We may need to play with the gripper some more.
 Double check the moving of the arm.
 Careful not to speed things up to much. Faster = more mistakes by the arm.
 
-We need to have containerLocation spit out what the user selected so that they know.
-
 We probably need to comment more and improve function comments.
 
-We may want to change the name of some of our functions.
+Change line 114 of loadContainers to check if it can handle a small box.
+    if(Containers(i).Weight_limit - Containers(i).Weight < "small box")
