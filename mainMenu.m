@@ -37,6 +37,7 @@ while choice ~= 6 && choice ~= 0
             %country and box type. A structure is returned.
             Containers = shippingDetails(Containers);
             countriesAssigned = true;
+            dispCountries(Containers);
                         
         case 3
             %Calls a function that will establish the locations of the
