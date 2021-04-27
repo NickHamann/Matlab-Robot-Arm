@@ -45,7 +45,7 @@ while choice ~= 6 && choice ~= 0
                 Containers = containerLocation(Containers);
                 containerLocationAssigned = true;
             else
-                fprintf('You have not yet assigned countries or box types to container\n');
+                cprintf('err', 'You have not yet assigned countries or box types to container\n');
             end
    
         case 4
@@ -55,7 +55,7 @@ while choice ~= 6 && choice ~= 0
                 [Containers, Stats] = loadContainers(Containers);
                 containersLoaded = true;
             else
-                fprintf('You have not yet established the locations of the containers\n');
+                cprintf('err', 'You have not yet established the locations of the containers\n');
             end
             
         case 5
@@ -64,7 +64,7 @@ while choice ~= 6 && choice ~= 0
             if containersLoaded
                 containerStats(Stats);
             else
-                fprintf('You have not yet loaded the containers\n');
+                cprintf('err', 'You have not yet loaded the containers\n');
             end
     end
     choice = menu('Choose a function to call','Description',...
