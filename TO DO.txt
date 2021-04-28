@@ -8,6 +8,3 @@ Double check the moving of the arm.
 Careful not to speed things up to much. Faster = more mistakes by the arm.
 
 We probably need to comment more and improve function comments.
-
-Change line 114 of loadContainers to check if it can handle a small box.
-    if(Containers(i).Weight_limit - Containers(i).Weight < "small box")
