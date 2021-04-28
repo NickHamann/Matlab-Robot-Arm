@@ -15,6 +15,7 @@ i = 1;
 
 %Boolean control variable.
 done = false;
+completelyFull = false;
 
 %Structure for loading.
 Load = struct('Box_type',[],'Box_size',[]);
@@ -93,6 +94,7 @@ while(~done)
 % limit.    
 if (Containers(1).isFull && Containers(2).isFull && Containers(3).isFull)
     cprintf('err', 'All 3 containers are full!\n The arm will not move!\n');
+    completelyFull = true;
 else
     for j = 1:3
         if (strcmpi(Containers(j).Box_type,Load.Box_type))
@@ -144,18 +146,23 @@ else
     end
 end
 
-%Have you finished loading container? Or do you want to load another?
-finished = menu('Do you want to load another box','YES','NO');
-if (finished == 2)
-    done = true;
+if (~completelyFull)
+   %Have you finished loading container? Or do you want to load another?
+    finished = menu('Do you want to load another box','YES','NO');
+    if (finished == 2)
+        done = true;
 
+    
+    else
+        i = i + 1;
+    end 
+else
     %Move the arm to a final rest position.
     moveservo(base, 0.5);
     moveservo(elbow, 0.1);
     moveservo(shoulder, 0.9);
-else
-    i = i + 1;
 end
+
 %There are no more images
     else
         cprintf('err','There are no more boxes to sort.\n');
