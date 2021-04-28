@@ -28,6 +28,8 @@ Stats(j) = struct('Country',Containers(j).Country,'Small',0,'Medium',...
     0,'Large',0);
 end
 
+cprintf('*#3f3d3c','Function Loaded\n\n');
+
 %While the user wants to continue, the program will keep loading and
 % processing boxes.
 while(~done)
@@ -87,7 +89,7 @@ while(~done)
         sound(message,Fs);
         pause(4);
 
-        close figure;
+        close all;
         
 %Moves the boxes to the appropriate container or 
 % the reject pile depending on its type and size and weight 
@@ -99,25 +101,29 @@ else
     for j = 1:3
         if (strcmpi(Containers(j).Box_type,Load.Box_type))
 
-            %Getting current weight to see if the limit has been reached.
+            %Getting future weight to see if the limit will be reached.
             call = sprintf("%s_weight",Load.Box_size);
             futureWeight = Containers(j).Weight + Containers(j).(call);
-    
+            
+            %Set the boolean isFull to true if the Container can't even
+               %fit a small box inside it.
+               if (Containers(j).Weight_limit - Containers(j).Weight < ...
+                       Containers(j).Small_weight)
+                    Containers(j).isFull = true;
+                    %Print what container is full.
+                    cprintf('*err','The container for %s is full!\n',...
+                        Containers(j).Country);
+               end
+            
             %If the future weight will be greater than the limit,
             % then reject the box.
             if (futureWeight > Containers(j).Weight_limit)
                %Send the box to the reject pile.
                [Rejected, ~] = audioread('Rejected.wav');
                sound(Rejected,Fs);
+               pause(2);
                Containers(4).Weight = Containers(4).Weight ...
                    + Containers(j).(call);
-               
-               %Set the boolean isFull to true if the Container can't even
-               %fit a small box inside it.
-               if (Containers(j).Weight_limit - Containers(j).Weight < ...
-                       Containers(j).Small_weight)
-                    Containers(j).isFull = true;
-               end
 
                %Track what goes into reject pile.
                Stats(4).(Load.Box_size) = Stats(4).(Load.Box_size) + 1;
@@ -129,16 +135,20 @@ else
                    a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn);
 
             else
-                %Load the box to container i.
+                %Load the box to container j.
                 cprintf('green', 'Accepted\n');
-                Containers(i).Weight = futureWeight;
+                Containers(j).Weight = futureWeight;
 
                 %Track what goes into the containers.
                 Stats(j).(Load.Box_size) = Stats(j).(Load.Box_size) + 1;
 
                 %Move the arm.
+                %Print the destination.
                 fprintf('Moving the box to the container for %s\n',...
                     Containers(j).Country);
+                %Print what the current weight is.
+                cprintf('blue','The container for %s now has a weight of %d\n',...
+                    Containers(j).Country,Containers(j).Weight);
                 moveArm(Containers(j).X_coordinate,Containers(j).Y_coordinate,...
                    a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn);
             end
@@ -151,7 +161,11 @@ if (~completelyFull)
     finished = menu('Do you want to load another box','YES','NO');
     if (finished == 2)
         done = true;
-
+        
+        %Move the arm to a final rest position.
+        moveservo(base, 0.5);
+        moveservo(elbow, 0.1);
+        moveservo(shoulder, 0.9);
     
     else
         i = i + 1;
@@ -165,7 +179,7 @@ end
 
 %There are no more images
     else
-        cprintf('err','There are no more boxes to sort.\n');
+        cprintf('err','There are no more boxes to load.\n');
         done = true;
     end
 end

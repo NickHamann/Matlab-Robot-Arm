@@ -9,7 +9,7 @@ function containerStats(Stats)
         Stats(2).Small Stats(2).Medium Stats(2).Large;...
         Stats(3).Small Stats(3).Medium Stats(3).Large;...
         Stats(4).Small Stats(4).Medium Stats(4).Large];
-    
+        
     close all;
     %Creates a figure and centers it.
     f = figure('Visible', 'off', 'Color', 'white','Units','Normalized',...
@@ -33,6 +33,9 @@ function containerStats(Stats)
         text(i, y2, num2str(Stats(i).Medium));
         text(i, y3, num2str(Stats(i).Large));
     end
+    
+    cprintf('*#3f3d3c','Function Loaded\n\n');
+
     f.Visible = 'on';
 end
 

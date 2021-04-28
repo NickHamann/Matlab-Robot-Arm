@@ -15,6 +15,8 @@ done = false;
 %Boolean variable for error checking.
 happy = true;
 
+cprintf('*#3f3d3c','Function Loaded\n\n');
+
 %Iterates 3 times for the 3 containers.
 for i = 1:3
     while(~done)

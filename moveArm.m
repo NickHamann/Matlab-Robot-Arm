@@ -21,8 +21,8 @@ function moveArm(x,y,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTu
         fprintf('Picking up\n');
         writePosition(gripper, 0.7);
         moveservo(shoulder, 0.32);
-        moveservo(elbow, 0.43); %Thick coin 0.38
-        writePosition(gripper, 0.888);
+        moveservo(elbow, 0.42); %Thick coin 0.38
+        writePosition(gripper, 0.893); %Last tried 0.888
         moveservo(elbow, 0.3);
         moveservo(shoulder, 0.4);
         

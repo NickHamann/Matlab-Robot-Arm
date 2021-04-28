@@ -33,6 +33,8 @@ function Containers = shippingDetails(Containers)
     %selected.
     okay = false;
 
+    cprintf('*#3f3d3c','Function Loaded\n\n');
+    
 %While the final spot is empty, keep running the program.
 while isempty(Containers(3).Box_type)
     %Country while loop.

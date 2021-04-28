@@ -37,6 +37,7 @@ while choice ~= 6 && choice ~= 0
         case 2
             %Calls a function that will link each container to a
             % country and box type. Uses the main structure, Containers.
+            cprintf('*#3f3d3c','Loading\n');
             Containers = shippingDetails(Containers);
             countriesAssigned = true;
             dispCountries(Containers, false);
@@ -46,6 +47,7 @@ while choice ~= 6 && choice ~= 0
             % containers for the arm to use later and puts them into a
             % structure. Uses the main structure, Containers.
             if countriesAssigned
+                cprintf('*#3f3d3c','Loading\n');
                 Containers = containerLocation(Containers);
                 containerLocationAssigned = true;
                 dispCountries(Containers, true);
@@ -58,6 +60,7 @@ while choice ~= 6 && choice ~= 0
             % It will ask you if you want to continue. And force you to
             % stop when the last container is full.
             if containerLocationAssigned
+                cprintf('*#3f3d3c','Loading\n');
                 [Containers, Stats] = loadContainers(Containers);
                 containersLoaded = true;
             else
@@ -68,6 +71,7 @@ while choice ~= 6 && choice ~= 0
             %Calls a function that will display the bar graph of what each
             %country is receiving (box type and size).
             if containersLoaded
+                cprintf('*#3f3d3c','Loading\n');
                 containerStats(Stats);
             else
                 cprintf('err', 'You have not yet loaded the containers\n');
