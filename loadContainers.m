@@ -111,7 +111,10 @@ else
                    + Containers(j).(call);
                
                %Set the boolean isFull to true
-               Containers(j).isFull = true;
+               if (Containers(j).Weight_limit - Containers(j).Weight < ...
+                       Containers(j).Small_weight)
+                    Containers(j).isFull = true;
+               end
 
                %Track what goes into reject pile.
                Stats(4).(Load.Box_size) = Stats(4).(Load.Box_size) + 1;
