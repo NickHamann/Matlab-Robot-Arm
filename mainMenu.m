@@ -36,15 +36,15 @@ while choice ~= 6 && choice ~= 0
             
         case 2
             %Calls a function that will link each container to a
-            % country and box type. A structure is returned.
+            % country and box type. Uses the main structure, Containers.
             Containers = shippingDetails(Containers);
             countriesAssigned = true;
             dispCountries(Containers, false);
                         
         case 3
             %Calls a function that will establish the locations of the
-            %containers for the arm to use later and puts them into a
-            %structure.
+            % containers for the arm to use later and puts them into a
+            % structure. Uses the main structure, Containers.
             if countriesAssigned
                 Containers = containerLocation(Containers);
                 containerLocationAssigned = true;
@@ -54,8 +54,9 @@ while choice ~= 6 && choice ~= 0
             end
    
         case 4
-            %Calls a function that will ask for x and y coordinates for the
-            %boxes and move the boxes to their appropriate locations.
+            %Calls a function that will load the containers with boxes.
+            % It will ask you if you want to continue. And force you to
+            % stop when the last container is full.
             if containerLocationAssigned
                 [Containers, Stats] = loadContainers(Containers);
                 containersLoaded = true;

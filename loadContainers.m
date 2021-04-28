@@ -158,13 +158,8 @@ else
 end
 %There are no more images
     else
-        fprintf('There are no more boxes to sort. Please select NO\n');
-        finished = menu('Do you want to load another box','YES','NO');
-        if (finished == 2)
-            done = true;
-        else
-            i = i + 1;
-        end
+        cprintf('err','There are no more boxes to sort.\n');
+        done = true;
     end
 end
 
