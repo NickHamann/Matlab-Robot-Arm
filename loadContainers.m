@@ -18,6 +18,7 @@ done = false;
 
 %Structure for loading.
 Load = struct('Box_type',[],'Box_size',[]);
+
 %Structure for container stats.
 Stats(4) = struct('Country',Containers(4).Country,'Small',0,'Medium',...
     0,'Large',0);
@@ -55,17 +56,17 @@ while(~done)
         if sum(sum(pic(1:large_check,:,1) == 0))
             Load.Box_size = "Large";
             
-            %if pic begins between 11 and 35%, then medium
+        %if pic begins between 11 and 35%, then medium
         elseif sum(sum(pic(large_check+1:medium_check,:,1) == 0))
             Load.Box_size = "Medium";
             
-            %if pic begins below 35%, then small
+        %if pic begins below 35%, then small
         else
             Load.Box_size = "Small";
         end
         
         %Display image to user and play a sound announcing box size
-        % and type.
+        %and type.
         figure(1);
         imshow(pic);
         
@@ -86,13 +87,12 @@ while(~done)
         pause(4);
 
         close figure;
+        
 %Moves the boxes to the appropriate container or 
 % the reject pile depending on its type and size and weight 
-% limit.
-Fs = 48000;
-    
+% limit.    
 if (Containers(1).isFull && Containers(2).isFull && Containers(3).isFull)
-    fprintf('All 3 containers are full!\n The arm will not move!\n');
+    cprintf('err', 'All 3 containers are full!\n The arm will not move!\n');
 else
     for j = 1:3
         if (strcmpi(Containers(j).Box_type,Load.Box_type))
@@ -110,7 +110,8 @@ else
                Containers(4).Weight = Containers(4).Weight ...
                    + Containers(j).(call);
                
-               %Set the boolean isFull to true
+               %Set the boolean isFull to true if the Container can't even
+               %fit a small box inside it.
                if (Containers(j).Weight_limit - Containers(j).Weight < ...
                        Containers(j).Small_weight)
                     Containers(j).isFull = true;
@@ -127,7 +128,7 @@ else
 
             else
                 %Load the box to container i.
-                fprintf('Accepted\n');
+                cprintf('green', 'Accepted\n');
                 Containers(i).Weight = futureWeight;
 
                 %Track what goes into the containers.
