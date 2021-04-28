@@ -4,7 +4,8 @@
 %
 % Format: mainMenu().
 
-%Initialize a structure called Containers.
+%Initialize a structure called Containers. This will be our primary
+% source of data storage.
 Containers(4) = struct('Country','Reject','Weight_limit',100000,...
     'Box_type','any','X_coordinate',[],'Y_coordinate',[],...
     'Weight',0,'Small_weight',[],'Medium_weight',[],'Large_weight',[],...
@@ -14,6 +15,7 @@ for i = 1:3
         'X_coordinate',[],'Y_coordinate',[],'Weight',0,'Small_weight',[],...
         'Medium_weight',[],'Large_weight',[],'isFull',false);
 end
+
 %Booleans for preventing users from accessing functions out of order.
 countriesAssigned = false;
 containerLocationAssigned = false;
@@ -34,7 +36,7 @@ while choice ~= 6 && choice ~= 0
             
         case 2
             %Calls a function that will link each container to a
-            %country and box type. A structure is returned.
+            % country and box type. A structure is returned.
             Containers = shippingDetails(Containers);
             countriesAssigned = true;
             dispCountries(Containers, false);
