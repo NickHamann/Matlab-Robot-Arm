@@ -9,5 +9,4 @@ Careful not to speed things up to much. Faster = more mistakes by the arm.
 
 We probably need to comment more and improve function comments.
 
-Add title to containerStats.
 Look over requirements for arm movement in the rubric.

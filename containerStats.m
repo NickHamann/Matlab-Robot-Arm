@@ -23,6 +23,7 @@ function containerStats(Stats)
     legend({'Small','Medium','Large'},'location','bestoutside');
     xlabel('Countries');
     ylabel('Number of boxes');
+    title('The Number of each Box Size in each Container');
     
     %Adds the number of each type of box to the stacked bar graph.
     for i = 1:4
