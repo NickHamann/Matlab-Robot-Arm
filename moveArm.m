@@ -12,7 +12,7 @@ function moveArm(x,y,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTu
     end
     wristMove = 0.5;
 
-    %extra error checking. Shouldn't need it.
+    %extra error checking. Just in case.
     if (radius < 10 || radius > 30)
         fprintf('Ya done goofed\n');
 

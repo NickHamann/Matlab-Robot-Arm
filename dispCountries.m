@@ -14,5 +14,11 @@ for i = 1:3
     end
 end
 
+if isCoordinatesSet
+        cprintf([1, 0.5, 0], 'Reject Pile:\n');
+        cprintf([1, 0.5, 0], '  Coordinates: [%.2f, %.2f]\n', ...
+            Containers(4).X_coordinate, Containers(4).Y_coordinate);
+end
+
 end
 

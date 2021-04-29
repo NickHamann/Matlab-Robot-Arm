@@ -34,6 +34,7 @@ for i = 1:3
                 if (x == Containers(1).X_coordinate &&...
                         y == Containers(1).Y_coordinate)
                     happy = false;
+                    cprintf('err','You have already used these coordinates.\n');
                 end
                 
             case 3
@@ -42,6 +43,7 @@ for i = 1:3
                         x == Containers(2).X_coordinate &&...
                         y == Containers(2).Y_coordinate)
                     happy = false;
+                    cprintf('err','You have already used these coordinates.\n');
                 end
         end
         
@@ -50,14 +52,23 @@ for i = 1:3
         
         %Checking that the coordinates can be reached by the arm.
         if (x >= -30 && x <= 30 && y >= 0 && y <= 30 && ...
-                radius <= 30 && happy)
+                radius <= 30 && radius >= 10 && happy)
             done = true;
             Containers(i).X_coordinate = x;
             Containers(i).Y_coordinate = y;
             cprintf('green', 'Coordinates accepted!\n');
+        elseif (radius > 30 || x < -30 || x > 30)
+            cprintf('err', 'You have exceeded the arm''s radius\n');
+        elseif (radius < 10)
+            cprintf('err', 'Your radius is less than 10\n');
+        elseif (y < 0)
+            cprintf('err', 'You have entered a negative y coordinate\n');
         else
             cprintf('err', 'You have entered an invalid x and y coordinate\n');
         end
+        
+        %Resetting error checking boolean.
+        happy = true;
     end
     
     %Resetting the while loop.
