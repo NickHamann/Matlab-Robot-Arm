@@ -6,7 +6,7 @@ function moveservo(servosel, des_position)
     % Rather than jump as quickly as possible to the desired location, the
     % servo is moved 0.01 every del_dur (0.0004 seconds).
     % Dr. Randy Fish, August 20, 2019
-    % Edited by Nick Hamann 2021
+    % Edited by Nick Hamann, April 24, 2021
 
         del_dur = 0.0004; %Delay between each position update
         pos_delta = 0.01; % amount to update the current position

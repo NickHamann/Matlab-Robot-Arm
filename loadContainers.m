@@ -5,6 +5,8 @@ function [Containers,Stats] = loadContainers(Containers)
 %
 % Format: [Containers, Stats] = loadContainers(Containers). All inputs
 %  and outputs are structures.
+%
+% Sam Goertzen & Nick Hamann, April 23, 2021
 
 %Initialize arm.
 clear a;

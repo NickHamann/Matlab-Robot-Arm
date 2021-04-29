@@ -3,6 +3,10 @@ function moveArm(x,y,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTu
 % appropriate location.
 %
 % Format: moveArm(x,y).
+% Inputs are floating point numbers that represent the x & y coordinates
+% of the location to move to.
+%
+% Sam Goertzen & Nick Hamann, April 24, 2021
     
     %For setup.
     radius = sqrt(x^2+y^2);

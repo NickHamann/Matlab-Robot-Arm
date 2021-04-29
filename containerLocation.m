@@ -9,6 +9,8 @@ function Containers = containerLocation(Containers)
 %       
 % Format: Containers = containerLocation(Containers). It receives the  
 %  existing structure for Containers and modifies the values in its fields.
+%
+% Sam Goertzen & Nick Hamann, April 20, 2021
 
 %Boolean variable for controlling the while loop.
 done = false;

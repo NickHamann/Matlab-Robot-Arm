@@ -3,6 +3,8 @@
 % exit the program.
 %
 % Format: mainMenu().
+%
+% Sam Goertzen & Nick Hamann, April 20, 2021
 
 %Initialize a structure called Containers. This will be our primary
 % source of data storage.

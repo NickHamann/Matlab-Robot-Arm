@@ -11,6 +11,9 @@ function Containers = shippingDetails(Containers)
 %
 % Format: Containers = shippingDetails(Containers) so that the 
 %  main strucutre is modified and returned for the mainMenu to use elsewhere.
+%  Containers is a structure.
+%
+% Sam Goertzen & Nick Hamann, April 20, 2021
 
     %Load excel sheet into a table.
     Details = readtable('ShippingDetails1.xlsx');

@@ -4,6 +4,9 @@ function [a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn] = start
 %
 % Format: [a, gripper, base, elbow, shoulder, wristUD, forearm,
 %  wristTurn] = startUpRoutine().
+%  Returns variables representing arduino servos.
+%
+% Sam Goertzen & Nick Hamann, April 24, 2021
 
     clear all;
     close all;
