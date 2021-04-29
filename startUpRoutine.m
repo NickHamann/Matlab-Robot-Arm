@@ -7,7 +7,8 @@ function [a,gripper, base, elbow, shoulder, wristUD, forearm, wristTurn] = start
 
     clear all;
     close all;
-    comdef = 'COM14'; %for arm 00379
+%     comdef = 'COM14'; %for arm 00379
+    comdef = 'COM8'; %for Sam's
 %     comdef = 'COM15'; %for arm thumbs up. If used, change base back calc.
     
     [a,gripper,base,elbow,shoulder,wristUD,forearm,wristTurn] = init_servos(comdef);
