@@ -171,16 +171,24 @@ if (~completelyFull)
         i = i + 1;
     end 
 else
+    done = true;
     %Move the arm to a final rest position.
     moveservo(base, 0.5);
     moveservo(elbow, 0.1);
     moveservo(shoulder, 0.9);
+    cprintf('*blue','Shutting Golem down\nGoodnight\n');
+    
 end
 
 %There are no more images
     else
         cprintf('err','There are no more boxes to load.\n');
         done = true;
+        %Move the arm to a final rest position.
+        moveservo(base, 0.5);
+        moveservo(elbow, 0.1);
+        moveservo(shoulder, 0.9);
+        cprintf('*blue','Shutting Golem down\nGoodnight\n');
     end
 end
 
