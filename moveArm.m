@@ -67,7 +67,7 @@ function moveArm(x,y,a,gripper, base, elbow, shoulder, wristUD, forearm, wristTu
         moveservo(shoulder, shoulderMove);
         moveservo(elbow, elbowMove);
         moveservo(wristUD, wristMove);
-        pause(1);
+        pause(1.2);
         writePosition(gripper, 0.7);
 
         %Set to moving position.
